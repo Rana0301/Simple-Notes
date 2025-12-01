@@ -102,5 +102,7 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
 
     implementation(libs.bundles.room)
+    testImplementation(libs.junit.jupiter)
     ksp(libs.androidx.room.compiler)
+
 }

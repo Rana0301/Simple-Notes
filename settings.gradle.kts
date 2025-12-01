@@ -11,6 +11,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven { setUrl("https://jitpack.io") }
+        maven { setUrl("https://maven.scijava.org/content/repositories/public/") }
     }
 }
 include(":app")
