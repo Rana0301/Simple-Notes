@@ -50,6 +50,10 @@ android {
         buildConfig = true
     }
 
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
+    }
+
     buildTypes {
         debug {
             applicationIdSuffix = ".debug"
@@ -94,6 +98,8 @@ android {
         abortOnError = false
     }
 }
+val mockitoVersion: String by project
+val mockitoKotlinVersion: String by project
 
 dependencies {
     implementation(libs.simple.tools.commons)
@@ -103,6 +109,11 @@ dependencies {
 
     implementation(libs.bundles.room)
     testImplementation(libs.junit.jupiter)
+    testImplementation(libs.junit)
     ksp(libs.androidx.room.compiler)
 
+    testImplementation("org.robolectric:robolectric:4.10.3")
+    testImplementation("org.mockito:mockito-core:5.2.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.1.0")
+    testImplementation("org.mockito:mockito-inline:5.2.0")
 }

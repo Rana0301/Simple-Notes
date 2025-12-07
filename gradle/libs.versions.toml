@@ -24,6 +24,7 @@ app-version-appId = "com.simplemobiletools.notes.pro"
 app-version-versionCode = "114"
 app-version-versionName = "6.17.0"
 junitJupiter = "5.8.1"
+junit = "4.12"
 [libraries]
 #AndroidX
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "androidx-constraintlayout" }
@@ -37,6 +38,7 @@ simple-tools-commons = { module = "com.github.SimpleMobileTools:Simple-Commons",
 #Kotlin
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
 [bundles]
 room = [
     "androidx-room-ktx",
