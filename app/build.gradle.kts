@@ -32,6 +32,7 @@ android {
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas")
         }
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
@@ -110,6 +111,7 @@ dependencies {
     implementation(libs.bundles.room)
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.junit)
+    testImplementation(libs.androidx.junit)
     ksp(libs.androidx.room.compiler)
 
     testImplementation("org.robolectric:robolectric:4.10.3")

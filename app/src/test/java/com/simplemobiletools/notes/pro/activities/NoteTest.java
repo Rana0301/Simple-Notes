@@ -2,6 +2,7 @@ package com.simplemobiletools.notes.pro.activities;
 
 import static com.simplemobiletools.commons.helpers.ConstantsKt.PROTECTION_FINGERPRINT;
 import static com.simplemobiletools.commons.helpers.ConstantsKt.PROTECTION_NONE;
+import static com.simplemobiletools.commons.helpers.ConstantsKt.PROTECTION_PIN;
 
 import com.simplemobiletools.commons.extensions.ContextKt;
 
@@ -48,7 +49,6 @@ public class NoteTest {
     private ContentResolver mockContentResolver;
     private Note emptyNote;
     private Note contentNote;
-    private Note fileNote;
     private Note exceptionNote;
     private Note hasProtectionTypeNote;
     private Note hasNotProtectionTypeNote;
@@ -62,10 +62,10 @@ public class NoteTest {
         MockitoAnnotations.openMocks(this);
         when(mockContext.getContentResolver()).thenReturn(mockContentResolver);
 
-        emptyNote = new Note(1L, "title", "value", NoteType.TYPE_TEXT, "", 0, "");
-        contentNote = new Note(1L, "title", "", NoteType.TYPE_TEXT, "content://mock/test", 0, "");
-        exceptionNote = new Note(1L, "title", "value", NoteType.TYPE_TEXT, "invalid/fileDoesNotExist/file.txt", 0, "");
-        hasProtectionTypeNote = new Note(1L, "title", "content", NoteType.TYPE_TEXT, "", 2, "hash");
+        emptyNote = new Note(1L, "title", "value", NoteType.TYPE_TEXT, "", PROTECTION_NONE, "");
+        contentNote = new Note(1L, "title", "", NoteType.TYPE_TEXT, "content://mock/test", PROTECTION_NONE, "");
+        exceptionNote = new Note(1L, "title", "value", NoteType.TYPE_TEXT, "invalid/fileDoesNotExist/file.txt", PROTECTION_NONE, "");
+        hasProtectionTypeNote = new Note(1L, "title", "content", NoteType.TYPE_TEXT, "", PROTECTION_PIN, "hash");
         hasNotProtectionTypeNote = new Note(1L, "title", "content", NoteType.TYPE_TEXT, "", PROTECTION_NONE, "");
         hasFingerprintAndBiometricNote = new Note(1L, "title", "content", NoteType.TYPE_TEXT, "", PROTECTION_FINGERPRINT, "hash");
         hasNotFingerPrint = new Note(1L, "title", "content", NoteType.TYPE_TEXT, "", PROTECTION_NONE, "");
@@ -111,7 +111,7 @@ public class NoteTest {
         writer.write("test");
         writer.close();
 
-        fileNote = new Note(1L, "title", "value", NoteType.TYPE_TEXT, testFile.getAbsolutePath(), 0, "");
+        Note fileNote = new Note(1L, "title", "value", NoteType.TYPE_TEXT, testFile.getAbsolutePath(), PROTECTION_NONE, "");
 
         String result = fileNote.getNoteStoredValue(mockContext);
         assertEquals("test", result);
@@ -122,7 +122,6 @@ public class NoteTest {
     public void getNoteStoredValueException() {
         String result = exceptionNote.getNoteStoredValue(mockContext);
         assertNull(result);
-
     }
 
     @Test
