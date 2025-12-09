@@ -33,7 +33,7 @@ jobs:
                 GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx3g -Dfile.encoding=UTF-8"
 
             - name: Run All Unit Tests
-              run: ./gradlew :app:testDebugUnitTest testCoreDebugUnitTest testFdroidDebugUnitTest testPrepaidDebugUnitTest --no-daemon --stacktrace
+              run: ./gradlew testCoreDebugUnitTest testFdroidDebugUnitTest testPrepaidDebugUnitTest --no-daemon --stacktrace
               env:
                 GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx3g -Dfile.encoding=UTF-8"
 
