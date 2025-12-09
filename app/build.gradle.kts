@@ -109,6 +109,7 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
 
     implementation(libs.bundles.room)
+    implementation(libs.junit)
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.junit)
     testImplementation(libs.androidx.junit)
@@ -118,4 +119,8 @@ dependencies {
     testImplementation("org.mockito:mockito-core:5.2.0")
     testImplementation("org.mockito.kotlin:mockito-kotlin:5.1.0")
     testImplementation("org.mockito:mockito-inline:5.2.0")
+
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("com.adevinta.android:barista:4.3.0")
 }

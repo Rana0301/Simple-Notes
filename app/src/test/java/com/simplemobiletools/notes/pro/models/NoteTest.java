@@ -1,4 +1,4 @@
-package com.simplemobiletools.notes.pro.activities;
+package com.simplemobiletools.notes.pro.models;
 
 import static com.simplemobiletools.commons.helpers.ConstantsKt.PROTECTION_FINGERPRINT;
 import static com.simplemobiletools.commons.helpers.ConstantsKt.PROTECTION_NONE;
